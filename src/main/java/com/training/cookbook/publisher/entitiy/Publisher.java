@@ -27,6 +27,10 @@ public class Publisher {
         this.username = username;
     }
 
+    public String bio;
+
+
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
