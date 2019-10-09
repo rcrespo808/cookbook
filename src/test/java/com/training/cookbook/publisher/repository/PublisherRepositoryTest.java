@@ -28,27 +28,16 @@ class PublisherRepositoryTest {
     }
 
     @Test
-    public void writeTest(){
+    public void databaseConnection_withValidPublisher_shouldSaveAndReturnPublisher() {
+        long publisherId = 1;
+
         Publisher publisher = new Publisher();
-        publisher.setId(9000L);
-        publisher.setUsername("TestUser");
-
-        final Publisher save = publisherRepository.save(publisher);
-
-        assertEquals(save,publisher);
-    }
-
-    @Test
-    public void readTest(){
-        Publisher publisher = new Publisher();
-        publisher.setId(9001L);
-        publisher.setUsername("TestUser2");
+        publisher.setId(publisherId);
+        publisher.setUsername("Jose");
 
         publisherRepository.save(publisher);
+        Publisher result = publisherRepository.findById(publisherId).orElse(null);
 
-        Optional<Publisher> load = publisherRepository.findById(9001L);
-
-        assertNotNull(load);
-        assertEquals(load.get(),publisher);
+        assertEquals(publisher, result);
     }
 }
