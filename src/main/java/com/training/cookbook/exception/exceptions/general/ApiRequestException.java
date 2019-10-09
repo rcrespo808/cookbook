@@ -1,4 +1,4 @@
-package com.training.cookbook.exception;
+package com.training.cookbook.exception.exceptions.general;
 
 public class ApiRequestException extends RuntimeException {
     public ApiRequestException(String message) {
