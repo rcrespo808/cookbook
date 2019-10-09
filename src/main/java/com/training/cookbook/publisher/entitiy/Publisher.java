@@ -11,6 +11,8 @@ public class Publisher {
 
     private String username;
 
+    public String bio;
+
     public Long getId() {
         return id;
     }
@@ -27,7 +29,6 @@ public class Publisher {
         this.username = username;
     }
 
-    public String bio;
 
 
 
