@@ -1,9 +1,9 @@
-package com.training.cookbook.ExceptionConfiguration;
+package com.training.cookbook.ExceptionConfiguration.configuration;
 
-import com.training.cookbook.apiException.ApiErrorModel;
-import com.training.cookbook.exception.ApiBadRequestException;
-import com.training.cookbook.exception.ApiInternalServerException;
-import com.training.cookbook.exception.ApiNotFoundException;
+import com.training.cookbook.ExceptionConfiguration.dto.ApiErrorDto;
+import com.training.cookbook.exceptions.api.ApiBadRequestException;
+import com.training.cookbook.exceptions.api.ApiInternalServerException;
+import com.training.cookbook.exceptions.api.ApiNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -29,7 +29,7 @@ public class ApiExceptionHandler {
     }
 
     private ResponseEntity<Object> getObjectResponseEntity(RuntimeException e, HttpStatus httpStatus) {
-        ApiErrorModel apiErrorModel = new ApiErrorModel(
+        ApiErrorDto apiErrorModel = new ApiErrorDto(
                 e.getMessage(),
                 httpStatus,
                 new Date());

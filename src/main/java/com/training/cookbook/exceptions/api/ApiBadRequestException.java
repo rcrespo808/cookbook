@@ -1,4 +1,4 @@
-package com.training.cookbook.exception;
+package com.training.cookbook.exceptions.api;
 
 public class ApiBadRequestException extends ApiException {
     public ApiBadRequestException(String message) {

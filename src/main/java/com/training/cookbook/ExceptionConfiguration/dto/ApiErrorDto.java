@@ -1,27 +1,27 @@
-package com.training.cookbook.apiException;
+package com.training.cookbook.ExceptionConfiguration.dto;
 
 import org.springframework.http.HttpStatus;
 
 import java.util.Date;
 import java.util.List;
 
-public class ApiErrorModel {
+public class ApiErrorDto {
     private final String message;
     private final HttpStatus httpStatus;
     private final Date timestamp;
-    private List<ErrorDetail> errorDetails;
+    private List<ErrorDetailDto> errorDetails;
 
-    public ApiErrorModel(String message, HttpStatus httpStatus, Date timestamp) {
+    public ApiErrorDto(String message, HttpStatus httpStatus, Date timestamp) {
         this.message = message;
         this.httpStatus = httpStatus;
         this.timestamp = timestamp;
     }
 
-    public List<ErrorDetail> getErrorDetails() {
+    public List<ErrorDetailDto> getErrorDetails() {
         return errorDetails;
     }
 
-    public void setErrorDetails(List<ErrorDetail> errorDetails) {
+    public void setErrorDetails(List<ErrorDetailDto> errorDetails) {
         this.errorDetails = errorDetails;
     }
 

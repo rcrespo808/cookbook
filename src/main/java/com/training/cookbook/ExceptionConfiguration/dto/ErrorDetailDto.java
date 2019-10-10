@@ -1,6 +1,6 @@
-package com.training.cookbook.apiException;
+package com.training.cookbook.ExceptionConfiguration.dto;
 
-public class ErrorDetail {
+public class ErrorDetailDto {
     private String cause;
     private String message;
 
@@ -20,7 +20,7 @@ public class ErrorDetail {
         this.message = message;
     }
 
-    public ErrorDetail(String cause, String message) {
+    public ErrorDetailDto(String cause, String message) {
         this.cause = cause;
         this.message = message;
     }

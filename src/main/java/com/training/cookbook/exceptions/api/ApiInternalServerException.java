@@ -1,4 +1,4 @@
-package com.training.cookbook.exception;
+package com.training.cookbook.exceptions.api;
 
 public class ApiInternalServerException extends ApiException {
     public ApiInternalServerException(String message) {
