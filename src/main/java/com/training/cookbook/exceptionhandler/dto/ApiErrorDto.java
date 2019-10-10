@@ -1,4 +1,4 @@
-package com.training.cookbook.ExceptionConfiguration.dto;
+package com.training.cookbook.exceptionhandler.dto;
 
 import org.springframework.http.HttpStatus;
 

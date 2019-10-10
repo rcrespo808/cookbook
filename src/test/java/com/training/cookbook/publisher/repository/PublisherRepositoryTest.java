@@ -1,6 +1,6 @@
 package com.training.cookbook.publisher.repository;
 
-import com.training.cookbook.publisher.entitiy.Publisher;
+import com.training.cookbook.publisher.entity.Publisher;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

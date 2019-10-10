@@ -1,6 +1,6 @@
-package com.training.cookbook.ExceptionConfiguration.configuration;
+package com.training.cookbook.exceptionhandler.configuration;
 
-import com.training.cookbook.ExceptionConfiguration.dto.ApiErrorDto;
+import com.training.cookbook.exceptionhandler.dto.ApiErrorDto;
 import com.training.cookbook.exceptions.api.ApiBadRequestException;
 import com.training.cookbook.exceptions.api.ApiInternalServerException;
 import com.training.cookbook.exceptions.api.ApiNotFoundException;

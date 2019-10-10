@@ -1,4 +1,4 @@
-package com.training.cookbook.publisher.entitiy;
+package com.training.cookbook.publisher.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
