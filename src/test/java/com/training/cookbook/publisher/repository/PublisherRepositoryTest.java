@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.List;
-import java.util.Optional;
 
 import static org.hibernate.validator.internal.util.Contracts.assertNotNull;
 import static org.junit.jupiter.api.Assertions.*;
@@ -33,7 +32,7 @@ class PublisherRepositoryTest {
 
         Publisher publisher = new Publisher();
         publisher.setId(publisherId);
-        publisher.setUsername("Jose");
+        publisher.setUsername("TestUser1");
 
         publisherRepository.save(publisher);
         Publisher result = publisherRepository.findById(publisherId).orElse(null);

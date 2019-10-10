@@ -1,6 +1,6 @@
 package com.training.cookbook.exception;
 
-public class ApiNotFoundException extends RuntimeException {
+public class ApiNotFoundException extends ApiException {
     public ApiNotFoundException(String message) {
         super(message);
     }
