@@ -12,7 +12,7 @@ public class Publisher {
 
     private String username;
 
-    public String bio;
+    private String biography;
 
     private Date deleteDate;
 
@@ -48,14 +48,20 @@ public class Publisher {
         this.username = username;
     }
 
-
-
     public Date getDeleteDate() {
         return deleteDate;
     }
 
     public void setDeleteDate(Date deleteDate) {
         this.deleteDate = deleteDate;
+    }
+
+    public String getBiography() {
+        return biography;
+    }
+
+    public void setBiography(String biography) {
+        this.biography = biography;
     }
 
     @Override
@@ -71,4 +77,5 @@ public class Publisher {
     public int hashCode() {
         return Objects.hash(getId(), getUsername());
     }
+
 }

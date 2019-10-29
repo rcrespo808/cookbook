@@ -58,7 +58,7 @@ public class PublisherService {
 
         try{
             Publisher updatePublisher = repository.findById(publisher.getId()).orElseThrow(() ->new PublisherNotFoundException("Unable to get Publisher with Id:" + publisher.getId()));;
-            updatePublisher.setbiography(publisher.getbiography());
+            updatePublisher.setBiography(publisher.getBiography());
             return repository.save(updatePublisher);
         }
         catch (PublisherNotFoundException e){
