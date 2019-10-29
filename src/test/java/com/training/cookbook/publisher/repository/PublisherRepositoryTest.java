@@ -13,16 +13,16 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 class PublisherRepositoryTest {
-    private PublisherRepository publisherRepository;
+    private IPublisherRepository IPublisherRepository;
 
     @Autowired
-    public PublisherRepositoryTest(PublisherRepository publisherRepository) {
-        this.publisherRepository = publisherRepository;
+    public PublisherRepositoryTest(IPublisherRepository IPublisherRepository) {
+        this.IPublisherRepository = IPublisherRepository;
     }
 
     @Test
     public void simpleTest(){
-        List<Publisher> publisherList = publisherRepository.findAll();
+        List<Publisher> publisherList = IPublisherRepository.findAll();
             assertNotNull(publisherList);
     }
 
@@ -34,8 +34,8 @@ class PublisherRepositoryTest {
         publisher.setId(publisherId);
         publisher.setUsername("TestUser1");
 
-        publisherRepository.save(publisher);
-        Publisher result = publisherRepository.findById(publisherId).orElse(null);
+        IPublisherRepository.save(publisher);
+        Publisher result = IPublisherRepository.findById(publisherId).orElse(null);
 
         assertEquals(publisher, result);
     }

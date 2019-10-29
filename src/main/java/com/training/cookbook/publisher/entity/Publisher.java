@@ -2,6 +2,7 @@ package com.training.cookbook.publisher.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.util.Date;
 import java.util.Objects;
 
 @Entity
@@ -12,6 +13,24 @@ public class Publisher {
     private String username;
 
     public String bio;
+
+    private Date deleteDate;
+
+    public Publisher(Long publisherId) {
+        this.setId(publisherId);
+        deleteDate = null;
+    }
+
+    public Publisher() {
+        deleteDate = null;
+    }
+
+    public Publisher(Long id, String username, String biography) {
+        this.id = id;
+        this.username = username;
+        this.biography = biography;
+        deleteDate = null;
+    }
 
     public Long getId() {
         return id;
@@ -31,6 +50,13 @@ public class Publisher {
 
 
 
+    public Date getDeleteDate() {
+        return deleteDate;
+    }
+
+    public void setDeleteDate(Date deleteDate) {
+        this.deleteDate = deleteDate;
+    }
 
     @Override
     public boolean equals(Object o) {
