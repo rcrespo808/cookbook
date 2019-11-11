@@ -1,16 +1,26 @@
-package com.training.cookbook.publisher.entity;
+package com.training.cookbook.publisher.persistence.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import com.training.cookbook.user.persistence.entity.User;
+
+import javax.persistence.*;
 import java.util.Date;
 import java.util.Objects;
 
 @Entity
 public class Publisher {
+
     @Id
+    @GeneratedValue
     private Long id;
 
+    @OneToOne(optional = false)
+    @JoinColumn(name = "USER_ID", foreignKey = @ForeignKey(name = "USER_ID"))
+    private User user;
+
+    @Column(unique = true)
     private String username;
+
+    private String email;
 
     private String biography;
 
@@ -18,18 +28,14 @@ public class Publisher {
 
     public Publisher(Long publisherId) {
         this.setId(publisherId);
-        deleteDate = null;
     }
 
-    public Publisher() {
-        deleteDate = null;
-    }
+    public Publisher() {}
 
     public Publisher(Long id, String username, String biography) {
         this.id = id;
         this.username = username;
         this.biography = biography;
-        deleteDate = null;
     }
 
     public Long getId() {
@@ -64,6 +70,22 @@ public class Publisher {
         this.biography = biography;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -77,5 +99,4 @@ public class Publisher {
     public int hashCode() {
         return Objects.hash(getId(), getUsername());
     }
-
 }

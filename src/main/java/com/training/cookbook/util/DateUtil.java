@@ -1,4 +1,4 @@
-package com.training.cookbook.Utils;
+package com.training.cookbook.util;
 
 
 import java.util.Date;

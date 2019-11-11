@@ -1,6 +1,6 @@
 package com.training.cookbook.publisher.service;
 
-import com.training.cookbook.publisher.repository.IPublisherRepository;
+import com.training.cookbook.publisher.persistence.repository.PublisherRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -11,7 +11,7 @@ class PublisherServiceTest {
 
     @Autowired
     PublisherService publisherService;
-    IPublisherRepository publisherResource;
+    PublisherRepository publisherResource;
 
     @Autowired
     private MockMvc mockMvc;

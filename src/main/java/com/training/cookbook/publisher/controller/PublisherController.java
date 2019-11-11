@@ -1,57 +1,44 @@
 package com.training.cookbook.publisher.controller;
 
-import com.training.cookbook.publisher.controller.dto.PublisherCreateDto;
-import com.training.cookbook.publisher.controller.dto.PublisherUpdateDto;
-import com.training.cookbook.publisher.entity.Publisher;
-import com.training.cookbook.publisher.mapper.PublisherCreateDtoMapper;
-import com.training.cookbook.publisher.mapper.PublisherUpdateDtoMapper;
+import com.training.cookbook.publisher.dto.PublisherCreateDto;
+import com.training.cookbook.publisher.dto.PublisherDto;
+import com.training.cookbook.publisher.mapper.PublisherDtoMapper;
 import com.training.cookbook.publisher.service.PublisherService;
-import com.training.cookbook.publisher.service.dto.PublisherDto;
-import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RequestMapping("api/v1/publisher")
 @RestController
 public class PublisherController
 {
-    @Autowired
     private PublisherService publisherService;
 
-    @Autowired
-    private PublisherCreateDtoMapper publisherCreateDtoMapper;
+    private PublisherDtoMapper publisherDtoMapper;
 
-    @Autowired
-    private PublisherUpdateDtoMapper publisherUpdateDtoMapper;
 
-    @Autowired
     public PublisherController(PublisherService publisherService,
-                               PublisherCreateDtoMapper createDtoMapper,
-                               PublisherUpdateDtoMapper updateDtoMapper) {
+                               PublisherDtoMapper publisherDtoMapper) {
         this.publisherService = publisherService;
-        this.publisherCreateDtoMapper = createDtoMapper;
-        this.publisherUpdateDtoMapper = updateDtoMapper;
+        this.publisherDtoMapper = publisherDtoMapper;
     }
 
     @PostMapping(consumes = "application/json")
-    public Publisher postPublisher(@RequestBody PublisherCreateDto publisherCreateDto){
-        return publisherService.savePublisher(publisherCreateDtoMapper.toPublisherDto(publisherCreateDto));
+    public PublisherDto createPublisher(@RequestBody PublisherCreateDto publisherDto){
+        return publisherService.savePublisher(publisherDto);
     }
 
     @GetMapping("/{id}")
-    public Publisher getPublisher(@PathVariable("id") Long publisherId) {
+    public PublisherDto getPublisherById(@PathVariable("id") Long publisherId) {
         return publisherService.getPublisherById(publisherId);
-
     }
 
     @DeleteMapping("/{id}")
-    public void deletePublisher(@PathVariable("id") Long publisherId) {
+    public void deletePublisherById(@PathVariable("id") Long publisherId) {
         publisherService.deletePublisher(publisherId);
     }
 
     @PatchMapping("/{id}")
-    public Publisher patchPublisher(@PathVariable("id") Long publisherId, @RequestBody PublisherUpdateDto publisher){
-        publisher.setId(publisherId);
-        return publisherService.updatePublisher(publisherUpdateDtoMapper.toPublisher(publisher));
+    public PublisherDto updatePublisher(@PathVariable("id") Long publisherId, @RequestBody PublisherDto publisherDto){
+        publisherDto.setId(publisherId);
+        return publisherService.updatePublisher(publisherDtoMapper.toPublisher(publisherDto));
     }
 }

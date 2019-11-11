@@ -1,6 +1,6 @@
-package com.training.cookbook.publisher.repository;
+package com.training.cookbook.publisher.persistence.repository;
 
-import com.training.cookbook.publisher.entity.Publisher;
+import com.training.cookbook.publisher.persistence.entity.Publisher;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -13,16 +13,16 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 class PublisherRepositoryTest {
-    private IPublisherRepository IPublisherRepository;
+    private PublisherRepository PublisherRepository;
 
     @Autowired
-    public PublisherRepositoryTest(IPublisherRepository IPublisherRepository) {
-        this.IPublisherRepository = IPublisherRepository;
+    public PublisherRepositoryTest(PublisherRepository PublisherRepository) {
+        this.PublisherRepository = PublisherRepository;
     }
 
     @Test
     public void simpleTest(){
-        List<Publisher> publisherList = IPublisherRepository.findAll();
+        List<Publisher> publisherList = PublisherRepository.findAll();
             assertNotNull(publisherList);
     }
 
@@ -34,8 +34,8 @@ class PublisherRepositoryTest {
         publisher.setId(publisherId);
         publisher.setUsername("TestUser1");
 
-        IPublisherRepository.save(publisher);
-        Publisher result = IPublisherRepository.findById(publisherId).orElse(null);
+        PublisherRepository.save(publisher);
+        Publisher result = PublisherRepository.findById(publisherId).orElse(null);
 
         assertEquals(publisher, result);
     }
